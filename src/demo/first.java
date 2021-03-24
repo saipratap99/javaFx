@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import javafx.scene.layout.StackPane;  
 
 
-public class first extends Application implements EventHandler{  
+public class first extends Application{  
 	
 	// Button b1
 	Stage window;
@@ -33,7 +33,7 @@ public class first extends Application implements EventHandler{
 		b1 = new Button("Say Hello World!");
 		
 		// event listener for button
-		b1.setOnAction(this);		
+		b1.setOnAction(e->{System.out.println("Hellow javafx!");});		
 		// layout
 		StackPane layout = new StackPane();
 		
@@ -47,13 +47,6 @@ public class first extends Application implements EventHandler{
 		window.show();
 		
 	}
-
-	@Override
-	public void handle(Event arg0) {
-		// TODO Auto-generated method stub
-		if (arg0.getSource() == b1) {
-			System.out.println("Hello JavaFx!");
-		}
-	}
+    
 
 }  
