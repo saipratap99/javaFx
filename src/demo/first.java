@@ -17,7 +17,7 @@ public class first extends Application{
 	// Button b1
 	Stage window;
 	Button b1,b2;
-	
+	boolean ans;
     public static void main (String[] args)  
     {  
     	launch(args);
@@ -31,7 +31,7 @@ public class first extends Application{
 		// sets the title for the stage (window)
 		window.setTitle("First Application in FX");
 		// button component
-		b1 = new Button("Click to get Alert");
+		b1 = new Button("Click to get confirm box");
 		// layout
 		StackPane layout = new StackPane();
 		
@@ -46,7 +46,7 @@ public class first extends Application{
 //		Scene sc2 = new Scene(layout2,600,300);
 
 		// adding event listeners
-		b1.setOnAction(e->{AlertBox.display("Alert!", "Unauthorized access");});		
+		b1.setOnAction(e->{System.out.println(ConfirmBox.display("Confirm!", "Are you sure?"));});		
 		
 		// adding scene to the stage
 		window.setScene(sc1);
