@@ -17,8 +17,9 @@ public class first extends Application{
 	// Button b1
 	Stage window;
 	Button b1,b2;
-	Label user_label,pass_label;
+	Label user_label,pass_label,lang_label;
 	TextField username,pass;
+	CheckBox lang1,lang2;
 	
 	boolean ans;
     public static void main (String[] args)  
@@ -44,9 +45,11 @@ public class first extends Application{
 		user_label = new Label("UserName");
 		GridPane.setConstraints(user_label, 0, 0);
 		
+		//  first colum  and first row
 		username = new TextField();
 		GridPane.setConstraints(username, 1, 0);
 		
+		// first col and second row
 		pass_label = new Label("Password");
 		GridPane.setConstraints(pass_label, 0, 1);
 		
@@ -54,7 +57,16 @@ public class first extends Application{
 		GridPane.setConstraints(pass, 1, 1);
 		pass.setPromptText("Password");
 		
-		grid.getChildren().addAll(user_label,username,pass_label,pass);
+		lang_label = new Label("Languages");
+		lang1 = new CheckBox("C++");
+		lang2 = new CheckBox("Python");
+		
+		GridPane.setConstraints(lang_label, 0, 2);
+		GridPane.setConstraints(lang1, 1, 2);
+		GridPane.setConstraints(lang2, 2, 2);
+		
+		grid.getChildren().addAll(user_label,username,pass_label,pass,lang_label,lang1,lang2);
+		
 		
 		Scene sc= new Scene(grid,600,300);
 		
