@@ -21,7 +21,7 @@ public class first extends Application{
 	TextField username,pass;
 	CheckBox lang1,lang2;
 	ChoiceBox<String> ocupation; 
-	
+	ComboBox<String> age;
 	boolean ans;
     public static void main (String[] args)  
     {  
@@ -82,6 +82,18 @@ public class first extends Application{
 		GridPane.setConstraints(ocupation, 0, 3);
 		grid.getChildren().add(ocupation);
 		
+		// Combo box - better than choice box
+		
+		age = new ComboBox<>();
+		age.setPromptText("Age Group");
+		age.setEditable(true);
+		age.getItems().addAll("15-18","19-35","36-50");
+		
+		// on selection event occurs - cool method
+		age.setOnAction(e->System.out.println("Age is: " + age.getValue()));
+		
+		GridPane.setConstraints(age, 0, 4);
+		grid.getChildren().add(age);
 		
 		
 		Scene sc= new Scene(grid,600,300);
