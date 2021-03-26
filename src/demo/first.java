@@ -22,6 +22,8 @@ public class first extends Application{
 	CheckBox lang1,lang2;
 	ChoiceBox<String> ocupation; 
 	ComboBox<String> age;
+	ListView<String> sports;
+	
 	boolean ans;
     public static void main (String[] args)  
     {  
@@ -94,6 +96,17 @@ public class first extends Application{
 		
 		GridPane.setConstraints(age, 0, 4);
 		grid.getChildren().add(age);
+		
+		// list view
+		sports = new ListView<>();
+		sports.getItems().addAll("Cricket","Football","Hockey","Base Ball");
+		sports.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+		sports.setMaxHeight(60);
+		sports.setMaxWidth(150);
+		
+		GridPane.setConstraints(sports, 0, 5);
+		grid.getChildren().add(sports);
+		
 		
 		
 		Scene sc= new Scene(grid,600,300);
