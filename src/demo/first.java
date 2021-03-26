@@ -76,8 +76,12 @@ public class first extends Application{
 		// setting default value
 		ocupation.setValue("Student");
 		
+		// listener for choice box
+		ocupation.getSelectionModel().selectedItemProperty().addListener((v,oldValue,newValue)-> username.setText(newValue));
+		
 		GridPane.setConstraints(ocupation, 0, 3);
 		grid.getChildren().add(ocupation);
+		
 		
 		
 		Scene sc= new Scene(grid,600,300);
