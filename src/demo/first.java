@@ -20,6 +20,7 @@ public class first extends Application{
 	Label user_label,pass_label,lang_label;
 	TextField username,pass;
 	CheckBox lang1,lang2;
+	ChoiceBox<String> ocupation; 
 	
 	boolean ans;
     public static void main (String[] args)  
@@ -66,6 +67,17 @@ public class first extends Application{
 		GridPane.setConstraints(lang2, 2, 2);
 		
 		grid.getChildren().addAll(user_label,username,pass_label,pass,lang_label,lang1,lang2);
+		
+		
+		// adding choice box
+		ocupation = new ChoiceBox<>();
+		// adding items
+		ocupation.getItems().addAll("Student","Professor","Employee","Others");
+		// setting default value
+		ocupation.setValue("Student");
+		
+		GridPane.setConstraints(ocupation, 0, 3);
+		grid.getChildren().add(ocupation);
 		
 		
 		Scene sc= new Scene(grid,600,300);
