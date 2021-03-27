@@ -47,15 +47,30 @@ public class CricketersTabel extends Application{
 		Stacklayout.getChildren().add(table);
 		
 		// Menus
+		// Shortcut Alt + F + N
+		Menu new_menu = new Menu("_New..");
+		MenuItem proj = new MenuItem("New Project");
+		MenuItem module = new MenuItem("Module");
+		new_menu.getItems().add(proj);
 		
-		Menu new_menu = new Menu("New..");
-		new_menu.getItems().add(new Menu("New Project"));
-		new_menu.getItems().add(new Menu("New Class"));
-		new_menu.getItems().add(new Menu("New Package"));
+		// Adding event listener
+		proj.setOnAction(e->System.out.println("Creating new Project"));
 		
-		Menu file = new Menu("File");
+		// Disabling the menu item
+		new_menu.getItems().add(module);
+		module.setDisable(true);
+		
+		new_menu.getItems().add(new MenuItem("New Class"));
+		new_menu.getItems().add(new MenuItem("New Package"));
+		
+		
+		// _File will add ShortCut Alt + F
+		Menu file = new Menu("_File");
 		file.getItems().add(new MenuItem("Open..."));
+		file.getItems().add(new SeparatorMenuItem());
+		
 		file.getItems().add(new_menu);
+		file.getItems().add(new SeparatorMenuItem());
 		file.getItems().add(new MenuItem("Save"));
 		file.getItems().add(new MenuItem("Exit"));
 		
