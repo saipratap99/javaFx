@@ -13,11 +13,12 @@ public class CricketersTabel extends Application{
 
 	Stage window;
 	TableView<CricketPlayer> table;
+	MenuBar menu;
 	
 	public static void main(String[] args) {
 		launch(args);
 	}
-	@SuppressWarnings("unchecked")
+	
 	@Override
 	public void start(Stage arg0) throws Exception {
 		window = arg0;
@@ -38,16 +39,38 @@ public class CricketersTabel extends Application{
 		matches.setMinWidth(150);
 		matches.setCellValueFactory(new PropertyValueFactory<>("matchesPlayed"));
 				
-				
-		
 		table = new TableView<>();
 		table.setItems(getData());
 		table.getColumns().addAll(name,age,matches);
 		
+		StackPane Stacklayout = new StackPane();
+		Stacklayout.getChildren().add(table);
+		
+		// Menus
+		
+		Menu new_menu = new Menu("New..");
+		new_menu.getItems().add(new Menu("New Project"));
+		new_menu.getItems().add(new Menu("New Class"));
+		new_menu.getItems().add(new Menu("New Package"));
+		
+		Menu file = new Menu("File");
+		file.getItems().add(new MenuItem("Open..."));
+		file.getItems().add(new_menu);
+		file.getItems().add(new MenuItem("Save"));
+		file.getItems().add(new MenuItem("Exit"));
 		
 		
-		StackPane layout = new StackPane();
-		layout.getChildren().add(table);
+		
+		Menu edit = new Menu("Edit");
+		edit.getItems().add(new MenuItem("Undo"));
+		
+		// adding menus to the menu bar
+		menu = new MenuBar();
+		menu.getMenus().addAll(file,edit);
+		
+		BorderPane layout = new BorderPane();
+		layout.setTop(menu);
+		layout.setCenter(Stacklayout);
 		
 		Scene sc = new Scene(layout,600,300);
 		window.setScene(sc);
